@@ -2,7 +2,7 @@ FROM jpetazzo/dind
 
 RUN apt-get update && \
     apt-get upgrade -y
-RUN apt-get install -y lxc-docker
+RUN apt-get install -y lxc-docker ruby2.0
 
 RUN curl -s -L https://github.com/docker/compose/releases/latest | \
     egrep -o '/docker/compose/releases/download/[0-9.]*/docker-compose-Linux-x86_64' | \
@@ -29,6 +29,8 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 	&& rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc \
 	&& npm install -g npm@"$NPM_VERSION" \
 	&& npm cache clear
+
+RUN gem install compass --no-ri --no-rdoc
 
 ENV LOG=file
 ENTRYPOINT ["wrapdocker"]
