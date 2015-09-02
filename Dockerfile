@@ -30,7 +30,8 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 	&& tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
 	&& rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc \
 	&& npm install -g npm@"$NPM_VERSION" \
-	&& npm cache clear
+	&& npm cache clear \
+	&& npm install -g bower grunt-cli gulp
 
 ENV LOG=file
 ENTRYPOINT ["wrapdocker"]
