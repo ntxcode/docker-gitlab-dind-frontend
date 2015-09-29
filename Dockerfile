@@ -42,6 +42,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 	&& npm cache clear \
 	&& npm install -g bower grunt-cli gulp
 
+COPY ca.cert /etc/ssl/certs/ca-certificates.crt
 ENV LOG=file
 ENTRYPOINT ["wrapdocker"]
 CMD []
