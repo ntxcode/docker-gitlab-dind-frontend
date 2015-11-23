@@ -5,7 +5,7 @@ RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-sel
 
 RUN apt-get update && \
     apt-get upgrade -y
-RUN apt-get install -y lxc-docker build-essential ruby ruby-dev
+RUN apt-get install -y build-essential ruby ruby-dev
 
 RUN apt-get install -y --no-install-recommends software-properties-common && \
     add-apt-repository ppa:webupd8team/java && \
